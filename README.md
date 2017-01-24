@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Deploy new AMI image
+Launch new instance AMI image
 
 Requirements
 ------------
@@ -37,7 +37,7 @@ It assumes you use the ec2 dynamic inventory
   connection: local
   gather_facts: no
   roles:
-    - role: deploy-new-ami
+    - role: launch-ami
 ```
 
 License

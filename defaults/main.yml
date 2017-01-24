@@ -1,0 +1,16 @@
+---
+# defaults file for deploy-new-ami
+instance_name: WIP_Deploy_AMI
+old_ami: TestDeploy-1
+old_ami_owner: 129822709161
+
+region: eu-west-1
+zone: eu-west-1a
+keypair: sistemas
+security_groups: launch-wizard-5
+instance_type: t2.micro
+volumes:
+  - device_name: /dev/sda1
+    device_type: gp2
+    volume_size: 20
+    delete_on_termination: true

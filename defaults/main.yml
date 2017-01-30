@@ -1,7 +1,7 @@
 ---
 # defaults file for deploy-new-ami
 instance_name   : WIP_Deploy_AMI
-old_ami         : TestDeploy-1
+old_ami_name    : TestDeploy-1
 old_ami_owner   : 129822709161
 
 region          : eu-west-1

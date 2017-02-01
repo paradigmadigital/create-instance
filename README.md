@@ -14,7 +14,7 @@ Role Variables
 Settable variables that are in defaults/main.yml.
 
 * instance_name   : name of the created instance
-* old_ami         : Base AMI to create the instance
+* old_ami_name    : Base AMI to create the instance
 * old_ami_owner   : Base AMI owner
 * region          : AWS region
 * zone            : AWS zone

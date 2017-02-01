@@ -1,25 +1,15 @@
-- name: Fetch metadata for the latest AMI
-  ec2_ami_find:
-    region           : "{{ region }}"
-    name             : "{{ old_ami }}"
-    owner            : "{{ old_ami_owner }}"
-    sort             : name
-    sort_order       : descending
-    sort_end         : 1
-    no_result_action : fail
-  register: ami_result
-
 - name: Launch new instance
   ec2:
     region        : "{{ region }}"
-    keypair       : "{{ keypair }}"
     zone          : "{{ zone }}"
-    group         : "{{ security_groups }}"
-    image         : "{{ ami_result.results[0].ami_id }}"
+    keypair       : "{{ keypair }}"
+    image         : "{{ ami_id }}"
+    group_id      : "{{ security_groups }}"
     instance_type : "{{ instance_type }}"
+    vpc_subnet_id : "{{ vpc_subnet_id }}"
     instance_tags :
       Name        : "{{ instance_name }}"
-    volumes       : "{{ volumes }}"
+    assign_public_ip : yes
     wait          : yes
   register: ec2
 

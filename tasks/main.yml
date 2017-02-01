@@ -9,6 +9,7 @@
     vpc_subnet_id : "{{ vpc_subnet_id }}"
     instance_tags :
       Name        : "{{ instance_name }}"
+    assign_public_ip : yes
     wait          : yes
   register: ec2
 

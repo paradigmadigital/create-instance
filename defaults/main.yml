@@ -1,9 +1,9 @@
 ---
-# defaults file for deploy-new-ami
+# defaults file for launch-ami
 instance_name   : WIP_Deploy_AMI
 old_ami_name    : TestDeploy-1
 old_ami_owner   : 129822709161
-
+instance_user   : root
 region          : eu-west-1
 zone            : eu-west-1a
 keypair         : sistemas

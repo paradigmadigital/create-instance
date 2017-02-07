@@ -15,11 +15,20 @@
 
 - name: Add new instances to host group
   add_host:
-    name   : "{{ item.public_dns_name }}"
-    groups : "{{ name }}"
-    ec2_id : "{{ item.id }}"
+    name             : "{{ item.public_dns_name }}"
+    groups           : "{{ instance_name }}"
+    ec2_id           : "{{ item.id }}"
+    ansible_ssh_user : "{{ instance_user }}"
+    ansible_ssh_private_key_file : "~/.ssh/{{ keypair }}"
+  with_items: "{{ ec2.instances }}"
+
+- set_fact: ec2_new_ami_id="{{ item.id }}"
   with_items: "{{ ec2.instances }}"
 
 - name: Wait for ssh server to be running
   wait_for: host={{ item.public_dns_name }} port=22 search_regex=OpenSSH
   with_items: "{{ ec2.instances }}"
+
+- name: Accept new ssh fingerprints
+  shell: ssh-keyscan -H {{ item.public_dns_name }} >> ~/.ssh/known_hosts
+  with_items: '{{ ec2.instances }}'

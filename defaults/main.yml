@@ -1,16 +1,20 @@
 ---
-# defaults file for launch-ami
-instance_name   : WIP_Deploy_AMI
-old_ami_name    : TestDeploy-1
-old_ami_owner   : 129822709161
-instance_user   : root
-region          : eu-west-1
-zone            : eu-west-1a
-keypair         : sistemas
-security_groups : launch-wizard-5
-instance_type   : t2.micro
-volumes:
-  - device_name: /dev/sda1
-    device_type: gp2
-    volume_size: 20
-    delete_on_termination: true
+# defaults file for create-instance
+instance:
+  name             : 
+  base_ami_id      :
+  user             : 
+  region           : 
+  zone             : 
+  keypair          : 
+  security_groups  : 
+  type             : 
+  vpc_subnet_id    : 
+  tags:
+    - Name         : "{{ instance.name }}"
+  assign_public_ip : yes
+  wait             : yes
+  volumes:
+    - device_name : /dev/sda1
+      volume_size : 20
+      delete_on_termination: true

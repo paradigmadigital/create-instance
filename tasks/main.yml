@@ -9,7 +9,7 @@
     group_id      : "{{ instance.security_groups }}"
     instance_type : "{{ instance.type }}"
     vpc_subnet_id : "{{ instance.vpc_subnet_id }}"
-    instance_tags : "{{ intance.tags }}"
+    instance_tags : "{{ instance.tags }}"
     assign_public_ip : "{{ instance.assign_public_ip }}"
     wait          : "{{ instance.wait }}"
   register: ec2

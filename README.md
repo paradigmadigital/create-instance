@@ -20,6 +20,7 @@ Settable variables that are in defaults/main.yml.
 * `instance.assign_public_ip` : when provisioning within vpc, assign a public IP address. Boto library must be 2.13.0+ (Choices: yes, no)[Default: None]
 * `instance.wait`             : wait for the instance to be 'running' before returning.  Does not wait for SSH, see 'wait_for' example for details.  (Choices: yes, no)[Default: no]
 * `instance.volumes`          : a list of hash/dictionaries of volumes to add to the new instance; '[{"key": "value", "key": "value"}]'; keys allowed are - device_name (str; required), delete_on_termination (bool; False), device_type (deprecated), ephemeral (str), encrypted (bool; False), snapshot (str), volume_type (str), iops (int) - device_type is deprecated use volume_type, iops must be set when volume_type='io1', ephemeral and snapshot are mutually exclusive.  [Default: None]
+* `instance.profile_name`     : the profile name to launch the instance with. [Default: None]
 
 ## Example Playbook
 

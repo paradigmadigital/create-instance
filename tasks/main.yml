@@ -12,6 +12,7 @@
     instance_tags : "{{ instance.tags }}"
     assign_public_ip : "{{ instance.assign_public_ip }}"
     wait          : "{{ instance.wait }}"
+    instance_profile_name: "{{ instance.profile_name }}"
   register: ec2
 
 - name: Add new instances to host group

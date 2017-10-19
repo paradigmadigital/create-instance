@@ -1,21 +1,22 @@
 ---
 # defaults file for create-instance
-name               : 
+name               :
 instance:
   name             : "{{ name }}"
   base_ami_id      :
-  user             : 
-  region           : 
-  zone             : 
-  keypair          : 
-  security_groups  : 
-  type             : 
-  vpc_subnet_id    : 
+  user             :
+  region           :
+  zone             :
+  keypair          :
+  security_groups  :
+  type             :
+  vpc_subnet_id    :
   tags:
-    Name         : "{{ name }}"
+    Name           : "{{ name }}"
   assign_public_ip : yes
   wait             : yes
   volumes:
     - device_name : /dev/sda1
       volume_size : 20
       delete_on_termination: true
+  profile_name :
